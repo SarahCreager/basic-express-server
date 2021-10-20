@@ -12,7 +12,7 @@ Created by Sarah Creager
  * supertest
 
 ## Summary of Problem Domain
-Build basic express server and deploy to Heroku, includes GET and POST routes, middleware, and tests.
+Built basic express server and deployed to Heroku, includes GET route, middleware, and tests.
 
 ## Links to application deployment
 
@@ -20,7 +20,7 @@ Build basic express server and deploy to Heroku, includes GET and POST routes, m
 
 ## UML
 
-![UML](./UML.png)
+![UML](./src/img/UML.png)
 
 ## Routes
 

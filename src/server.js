@@ -13,12 +13,15 @@ const logger = require('./middleware/logger.js')
 
 // running logger for all routes in application
 app.use(logger);
+app.use(express.json());
 
+app.get('/person', validator, (request, response)  => {
+  let name = request.query.name;
+  response.send(name);
+});
 
-
-
-app.use(error404Handler);
 app.use(error500Handler);
+app.use(error404Handler);
 
 module.exports = {
   app,
