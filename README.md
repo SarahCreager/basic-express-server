@@ -24,11 +24,8 @@ Build basic express server and deploy to Heroku, includes GET and POST routes, m
 
 ## Routes
 
-* HTTP GET
-  * Path: /repeat
-    * responds with the last string used in post route `/talk`.
-
-* HTTP POST
-  * Path: /talk
-    * Accepts a string.
-    * responds with a string.
+Method: GET
+Path: /person
+Expects a query string from the user with a “name” property
+When present, output JSON to the client with this shape: { name: "name provided" }
+Without a name in the query string, force a “500” error
