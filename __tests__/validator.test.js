@@ -16,4 +16,5 @@ describe('Testing the validator middleware', () => {
     expect(request.query.name).toBe('Sarah');
     expect(next).toHaveBeenCalled();
   })
+
 })
