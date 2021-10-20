@@ -25,5 +25,5 @@ app.use(error404Handler);
 
 module.exports = {
   app,
-  start: app.listen(PORT, () => console.log(`Server is running on port ${PORT}`)),
+  // start: app.listen(3001, () => console.log(`Server is running on port ${PORT}`)), // affecting jest
 };
