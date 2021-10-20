@@ -3,8 +3,8 @@
 const express = require('express');
 const app = express();
 
-const dotenv = require('dotenv').config();
-const PORT = process.env.PORT || 3001;
+// const dotenv = require('dotenv').config();
+// const PORT = process.env.PORT || 3001;
 
 const validator = require('./middleware/validator.js');
 const error404Handler = require('./error-handlers/404.js');
@@ -16,6 +16,7 @@ app.use(logger);
 app.use(express.json());
 
 app.get('/person', validator, (request, response)  => {
+  //response.status(200)
   let name = request.query.name;
   response.send(name);
 });
@@ -25,5 +26,7 @@ app.use(error404Handler);
 
 module.exports = {
   app,
-  // start: app.listen(3001, () => console.log(`Server is running on port ${PORT}`)), // affecting jest
+  start: (PORT) => {
+    app.listen(PORT, () => console.log(`Server is running on port ${PORT}`)) 
+  }
 };
