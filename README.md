@@ -18,6 +18,8 @@ Built basic express server and deployed to Heroku, includes GET route, middlewar
 
 [Deployed Heroku Application](https://sarah-basic-express-server.herokuapp.com/)
 
+[GitHub](https://github.com/SarahCreager/basic-express-server.git)
+
 ## UML
 
 ![UML](./src/img/UML.png)
