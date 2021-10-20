@@ -3,9 +3,6 @@
 const express = require('express');
 const app = express();
 
-// const dotenv = require('dotenv').config();
-// const PORT = process.env.PORT || 3001;
-
 const validator = require('./middleware/validator.js');
 const error404Handler = require('./error-handlers/404.js');
 const error500Handler = require('./error-handlers/500.js');
@@ -16,13 +13,15 @@ app.use(logger);
 app.use(express.json());
 
 app.get('/person', validator, (request, response)  => {
-  //response.status(200)
+  // TODO: response.status(200)
   let name = request.query.name;
   response.send(name);
+  // TODO: send back an object
 });
 
-app.use(error500Handler);
+
 app.use(error404Handler);
+app.use(error500Handler);
 
 module.exports = {
   app,
