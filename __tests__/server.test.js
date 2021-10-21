@@ -10,7 +10,7 @@ describe('Testing our Server', () => {
     const response = await request.get('/person?name=Sarah');
 
     expect(response.status).toBe(200);
-    expect(response.text).toBe('Sarah');
+    expect(response.body.name).toBe('Sarah');
   })
 
   it('Should respond with 500 if no name on GET to /person', async () => {
