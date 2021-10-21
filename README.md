@@ -11,6 +11,7 @@ Created by Sarah Creager
  * jest
  * supertest
  * Sequelize
+ * sqlite3
 
 ## Summary of Problem Domain
 Built basic express server and deployed to Heroku, includes GET, PUT, DELETE routes, middleware, and tests. Includes 2 SQL data models using the Sequelize libary.
@@ -28,7 +29,13 @@ Built basic express server and deployed to Heroku, includes GET, PUT, DELETE rou
 ## Routes
 
 Method: GET
-Path: /person
-Expects a query string from the user with a “name” property
-When present, output JSON to the client with this shape: { name: "name provided" }
-Without a name in the query string, force a “500” error
+Path: /food   /restaurant
+
+Method: POST
+Path: /food   /restaurant
+
+Method: PUT
+Path: /food   /restaurant
+
+Method: DELETE
+Path: /food   /restaurant
