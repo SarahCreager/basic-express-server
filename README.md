@@ -10,9 +10,10 @@ Created by Sarah Creager
  * express
  * jest
  * supertest
+ * Sequelize
 
 ## Summary of Problem Domain
-Built basic express server and deployed to Heroku, includes GET route, middleware, and tests.
+Built basic express server and deployed to Heroku, includes GET, PUT, DELETE routes, middleware, and tests. Includes 2 SQL data models using the Sequelize libary.
 
 ## Links to application deployment
 
