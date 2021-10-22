@@ -7,8 +7,8 @@ const validator = require('./middleware/validator.js');
 const error404Handler = require('./error-handlers/404.js');
 const error500Handler = require('./error-handlers/500.js');
 const logger = require('./middleware/logger.js');
-const foodRoutes = require('./routes/foodRoute');
-const restRoutes = require('./routes/restaurantRoute');
+const foodRouter = require('./routes/foodRoute');
+const restRouter = require('./routes/restaurantRoute');
 
 
 // running logger for all routes in application
@@ -22,19 +22,9 @@ app.get('/person', validator, (request, response)  => {
   response.send(name);
 });
 
-// Food Routes
-app.get('/food', foodRoutes.getAllFood)
-app.get('/food/:id', foodRoutes.getAFood);
-app.post('/food', foodRoutes.addFood);
-app.put('/food/:id', foodRoutes.updateFood);
-app.delete('/food/:id', foodRoutes.deleteFood);
-
-// Restarant Routes 
-app.get('/restaurant', restRoutes.getAllRest)
-app.get('/restaurant/:id', restRoutes.getARest);
-app.post('/restaurant', restRoutes.addRest);
-app.put('/restaurant/:id', restRoutes.updateRest);
-app.delete('/restaurant/:id', restRoutes.deleteRest);
+// Routes
+app.use('/food', foodRouter);
+app.use('/restaurant', restRouter);
 
 
 // error middleware
