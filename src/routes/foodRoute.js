@@ -1,28 +1,23 @@
 'use strict';
 
-// const { request } = require('express');
+
 const { food } = require('../models')
 
-///bring in express router. 
-// const express = require('express');
-// const router = express.Router();
-
-
-// TODO using router. 
-// router.get('/', getAllFood)
+///bring in express router 
+const express = require('express');
+const router = express.Router();
 
 
 // get all food
 const getAllFood = async (req, res) => {
   try {
     let foodData = await food.findAll();
-    // will send automatically without sending status
+    // will send 200 automatically without sending status
     res.status(200).send(foodData);
   } catch (error) {
     // next(e); write middleware to handle errors
     res.send(error);
   }
-  
 }
 
 // get one food item using an id path
@@ -77,12 +72,11 @@ const deleteFood = async (req, res) => {
   }
 }
 
-module.exports = {
-  getAllFood,
-  getAFood,
-  addFood,
-  updateFood,
-  deleteFood,
-};
+// routes
+router.get('/', getAllFood)
+router.get('/:id', getAFood);
+router.post('/', addFood);
+router.put('/:id', updateFood);
+router.delete('/:id', deleteFood);
 
-//module.exports = router;
+module.exports = router;

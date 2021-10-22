@@ -2,6 +2,11 @@
 
 const { rest } = require('../models')
 
+///bring in express router 
+const express = require('express');
+const router = express.Router();
+
+
 
 // get all restaurants
 const getAllRest = async (req, res) => {
@@ -67,10 +72,11 @@ const deleteRest = async (req, res) => {
   }
 }
 
-module.exports = {
-  getAllRest,
-  getARest,
-  addRest,
-  updateRest,
-  deleteRest,
-};
+// routes
+router.get('/', getAllRest)
+router.get('/:id', getARest);
+router.post('/', addRest);
+router.put('/:id', updateRest);
+router.delete('/:id', deleteRest);
+
+module.exports = router;
