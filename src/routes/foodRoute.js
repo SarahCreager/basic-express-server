@@ -1,15 +1,25 @@
 'use strict';
 
-const { request } = require('express');
+// const { request } = require('express');
 const { food } = require('../models')
+
+///bring in express router. 
+// const express = require('express');
+// const router = express.Router();
+
+
+// TODO using router. 
+// router.get('/', getAllFood)
 
 
 // get all food
 const getAllFood = async (req, res) => {
   try {
     let foodData = await food.findAll();
+    // will send automatically without sending status
     res.status(200).send(foodData);
   } catch (error) {
+    // next(e); write middleware to handle errors
     res.send(error);
   }
   
@@ -59,7 +69,7 @@ const updateFood = async (req, res) => {
 const deleteFood = async (req, res) => {
   try{
     const foodItem = await food.findByPk(req.params.id);
-    const destroyedFood = await foodItem.destroy();
+    const destroyedFood = await food.destroy(foodItem);
 
     res.send(destroyedFood);
   } catch (error) {
@@ -74,3 +84,5 @@ module.exports = {
   updateFood,
   deleteFood,
 };
+
+//module.exports = router;

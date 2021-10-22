@@ -70,11 +70,11 @@ describe('Testing /restaurant routes', () => {
 
   })
 
-  // it('Should delete a restaurant', async () => {
-  //   await request.delete('/restaurant/1');
-
-  //   let updatedResponse = await request.get('/restaurant/1');
-  //   expect(updatedResponse.statusCode).toBe(404);
-  // });
+  it('Should delete a Restaurant item', async () => {
+    
+    let response = await request.delete('/restaurant/1');
+    response = JSON.parse(response.res.text)
+    expect(response).toStrictEqual({});
+  });
 
 });

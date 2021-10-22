@@ -5,6 +5,7 @@ const supertest = require('supertest');
 const app = require('../src/server.js');
 const request = supertest(app.app);
 
+// beforeEach
 beforeAll(async () => {
   //make sure that tables exist and creates tables if they do not exist 
   await db.sync();
@@ -69,10 +70,10 @@ describe('Testing our sequelize food model', () => {
 
   })
 
-  // it('Should delete a food item', async () => {
-  //   await request.delete('/food/1');
-
-  //   let updatedResponse = await request.get('/food/1');
-  //   expect(updatedResponse.statusCode).toBe(404);
-  // });
+  it('Should delete a food item', async () => {
+    
+    let response = await request.delete('/food/1');
+    response = JSON.parse(response.res.text)
+    expect(response).toStrictEqual({});
+  });
 });

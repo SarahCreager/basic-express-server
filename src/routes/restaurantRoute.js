@@ -59,7 +59,7 @@ const updateRest = async (req, res) => {
 const deleteRest = async (req, res) => {
   try{
     const restItem = await rest.findByPk(req.params.id);
-    const destroyedRest = await restItem.destroy();
+    const destroyedRest = await rest.destroy(restItem);
 
     res.send(destroyedRest);
   } catch (error) {
