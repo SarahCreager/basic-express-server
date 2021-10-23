@@ -21,14 +21,15 @@ const options = process.env.NODE_ENV === 'production'
   : {};
 
 
-// instantiate our instance of sequelize  and pass in database url that allows us to actually connect to a running database or sqlite
+// instantiates our instance of sequelize and pass in database url that allows us to actually connect to a running database or sqlite
 const sequelizeInstance = new Sequelize(DATABASE_URL, options);
 
-const foodTable = FoodModel(sequelizeInstance, DataTypes);
-const restTable = RestModel(sequelizeInstance, DataTypes);
+const food = FoodModel(sequelizeInstance, DataTypes);
+const rest = RestModel(sequelizeInstance, DataTypes);
+
 
 module.exports = {
   db: sequelizeInstance,
-  food: foodTable,
-  rest: restTable
+  food,
+  rest
 }
